@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Meeran and Amra//Wedding Memories Reminder//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:photos-20270110T043000Z@meeran-amra.github.io
+DTSTAMP:20261117T210000Z
+DTSTART:20270110T043000Z
+DTEND:20270110T044000Z
+SUMMARY:Capture Wedding Memories - Meeran and Amra
+DESCRIPTION:Capture happy moments and group photos with friends and family. Share photos and videos privately through our wedding invitation at https://meeran-amra.github.io/.
+LOCATION:Drizzle Elite Mahal, Courtallam, Tamil Nadu, India
+URL:https://meeran-amra.github.io/
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Remember to capture and share moments from Meeran and Amra's wedding.
+TRIGGER:PT0M
+END:VALARM
+END:VEVENT
+END:VCALENDAR

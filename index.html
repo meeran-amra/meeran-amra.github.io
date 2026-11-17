@@ -1,0 +1,636 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f8f3eb">
+<meta name="description" content="Meeran & Amra — Wedding Invitation, 10 January 2027">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Meeran & Amra — Wedding Invitation">
+<meta property="og:description" content="Sunday, 10 January 2027 at 11:00 AM IST · Drizzle Elite Mahal, Courtallam.">
+<meta property="og:url" content="https://meeran-amra.github.io/">
+<meta property="og:site_name" content="Meeran &amp; Amra Wedding">
+<meta property="og:image" content="https://meeran-amra.github.io/share-preview.jpg">
+<meta property="og:image:secure_url" content="https://meeran-amra.github.io/share-preview.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Meeran and Amra wedding invitation, 10 January 2027, Drizzle Elite Mahal, Courtallam">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Meeran &amp; Amra — Wedding Invitation">
+<meta name="twitter:description" content="Sunday, 10 January 2027 at 11:00 AM IST · Drizzle Elite Mahal, Courtallam.">
+<meta name="twitter:image" content="https://meeran-amra.github.io/share-preview.jpg">
+<link rel="canonical" href="https://meeran-amra.github.io/">
+<title>Meeran &amp; Amra — Wedding Invitation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #f8f3eb;
+  --paper: #fffaf3;
+  --ink: #49342b;
+  --muted: #8b7567;
+  --terra: #a65f48;
+  --line: #d8c4b4;
+  --ivory: #f5ece0;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  min-width: 280px;
+  color: var(--ink);
+  background: var(--cream);
+  font-family: "Cormorant Garamond", Georgia, serif;
+}
+a, button { font: inherit; }
+button { cursor: pointer; }
+a:focus-visible, button:focus-visible { outline: 3px solid #e9b983; outline-offset: 4px; }
+.sr-only {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  overflow: hidden; padding: 0; margin: -1px;
+  white-space: nowrap; clip: rect(0,0,0,0); border: 0;
+}
+.caps, .kicker, .eyebrow, .date, .outline, .footer-date,
+.action-link, .section-cue, .music, .hint { font-family: Arial, Helvetica, sans-serif; }
+.kicker, .caps, .eyebrow { font-size: 10px; letter-spacing: .22em; }
+
+/* Envelope: the card stays entirely hidden until the guest opens it. */
+.screen {
+  position: fixed; inset: 0; z-index: 20;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 28px 20px max(28px, env(safe-area-inset-bottom));
+  text-align: center;
+  background: radial-gradient(ellipse at center, #fffaf3, #eee2d5);
+  transition: opacity .75s ease, visibility .75s ease;
+}
+.screen.hide { opacity: 0; visibility: hidden; pointer-events: none; }
+.kicker { color: var(--terra); margin-bottom: 34px; }
+.envelope-btn {
+  width: min(344px, 86vw); height: 226px;
+  display: block; padding: 0; border: 0;
+  background: none; position: relative;
+  transition: transform .25s ease;
+}
+.envelope-btn:hover:not(:disabled) { transform: translateY(-4px); }
+.envelope-btn:disabled { cursor: default; }
+.envelope {
+  position: absolute; inset: 0;
+  background: linear-gradient(145deg, #ead7c6, #f6e9dc 50%, #dfc6b2);
+  border: 1px solid #d1b8a4;
+  box-shadow: 0 22px 55px #7c5b4725;
+  overflow: visible;
+  perspective: 800px;
+}
+.envelope::before, .envelope::after {
+  content: ""; position: absolute; inset: 0; z-index: 3;
+  background: #e5cdb9; pointer-events: none;
+}
+.envelope::before { clip-path: polygon(0 0, 51% 65%, 0 100%); }
+.envelope::after { clip-path: polygon(100% 0, 49% 65%, 100% 100%); }
+.flap {
+  position: absolute; top: 0; left: 0; width: 100%; height: 59%;
+  background: #f2e2d3;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  transform-origin: top center; backface-visibility: hidden;
+  transition: transform .65s ease; z-index: 4;
+}
+.invite-peek {
+  position: absolute; left: 50%; bottom: 18px; width: 70%;
+  padding: 18px 10px 14px;
+  color: var(--ink); background: #fff9f2;
+  border: 1px solid #d7bfb0;
+  box-shadow: 0 10px 28px #76564529;
+  z-index: 2;
+  opacity: 0; visibility: hidden;
+  transform: translate(-50%, 37px);
+  transition: transform .85s cubic-bezier(.22,.61,.36,1), opacity .18s ease, visibility .18s;
+  pointer-events: none;
+}
+.invite-peek-title { font-size: 26px; line-height: 1.1; }
+.invite-peek-title em {
+  display: block; font-family: "Great Vibes", cursive;
+  color: var(--terra); font-style: normal; font-size: 28px;
+}
+.invite-peek-date {
+  margin-top: 11px; font: 9px Arial, sans-serif;
+  color: var(--muted); letter-spacing: .15em;
+}
+.seal {
+  position: absolute; top: 45%; left: 50%; z-index: 5;
+  transform: translate(-50%, -50%);
+  display: grid; place-items: center;
+  width: 58px; height: 58px; border-radius: 50%;
+  font-size: 16px; line-height: 1; color: #f9ead9;
+  background: var(--terra); box-shadow: 0 3px 8px #56312645;
+  transition: opacity .3s ease, transform .4s ease;
+}
+.caption {
+  position: absolute; z-index: 6; bottom: 19px; left: 0; right: 0;
+  color: #765747; font-size: 18px; font-style: italic;
+  transition: opacity .25s ease;
+}
+.screen.opening .flap { transform: rotateX(170deg); }
+.screen.opening .seal { opacity: 0; transform: translate(-50%,-24%) scale(.75); }
+.screen.opening .caption { opacity: 0; }
+.screen.opening .invite-peek {
+  opacity: 1; visibility: visible;
+  transform: translate(-50%, -140px);
+  transition-delay: .14s;
+}
+.screen.opening .envelope {
+  transform: translateY(12px);
+  transition: transform .5s ease;
+}
+.hint { margin-top: 32px; color: var(--muted); font-size: 13px; letter-spacing: .1em; }
+
+/* Shared page layout. Sections may grow; nothing is clipped on short screens. */
+main { max-width: 760px; margin: auto; box-shadow: 0 0 60px #60463210; }
+.hero {
+  position: relative; isolation: isolate;
+  min-height: 100vh; min-height: 100svh;
+  display: flex; flex-direction: column; align-items: center;
+  padding: 26px 28px max(24px, env(safe-area-inset-bottom));
+  text-align: center; color: #fffaf3;
+  background: linear-gradient(160deg, #8d6a59 0%, #694d3e 48%, #3d2922 100%);
+}
+.hero-photo {
+  position: absolute; inset: 0; z-index: -2;
+  width: 100%; height: 100%; object-fit: cover;
+  object-position: center 28%; opacity: 0;
+}
+.hero.photo-ready .hero-photo { opacity: .88; }
+.overlay {
+  position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(180deg, #2118125e 0%, #21181210 32%, #21181262 65%, #211812ce 100%);
+}
+.hero.photo-missing .overlay {
+  background: linear-gradient(180deg, #4f372d35 0%, #4e392c40 40%, #2d201bbd 100%);
+}
+.hero-frame {
+  position: absolute; z-index: 0; inset: 16px;
+  border: 1px solid #f8e8d059; pointer-events: none;
+}
+.hero-frame::before, .hero-frame::after {
+  content: "✦"; position: absolute; left: 50%;
+  transform: translateX(-50%); padding: 0 8px;
+  color: #e6c2a4a8; line-height: 1; font-size: 13px;
+}
+.hero-frame::before { top: -7px; background: #705343; }
+.hero-frame::after { bottom: -7px; background: #3d2922; }
+.botanical {
+  position: absolute; top: 80px; z-index: 0;
+  color: #f0d7bd80; font-size: 32px; pointer-events: none;
+}
+.botanical.left { left: 28px; transform: rotate(-25deg); }
+.botanical.right { right: 28px; transform: scaleX(-1) rotate(-25deg); }
+.top, .hero-illustration, .copy, .bottom { position: relative; z-index: 1; }
+.top { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.monogram {
+  width: 63px; height: 63px; flex-shrink: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  border: 1px solid #f8e8d0aa; border-radius: 50%;
+  font-size: 19px; line-height: .87;
+}
+.monogram i { font-size: 16px; font-style: italic; }
+.caps { color: #fff6ec; }
+.hero-illustration {
+  width: clamp(105px, 19vh, 158px);
+  margin: clamp(15px, 3vh, 30px) auto clamp(12px, 2.8vh, 24px);
+  flex-shrink: 0;
+}
+.hero-illustration img { display: block; width: 100%; height: auto; }
+.copy { width: 100%; max-width: 550px; margin: 0 auto; padding: 0; }
+.eyebrow { color: var(--terra); margin: 0 0 15px; }
+.eyebrow.light { color: #f1d9c5; }
+.hero h1 {
+  display: flex; flex-direction: column;
+  font-size: clamp(54px, 12vw, 88px);
+  line-height: .95; font-weight: 400; margin: 0;
+}
+.hero h1 em {
+  font-family: "Great Vibes", cursive;
+  color: #e6c2a4; font-size: .54em;
+  font-weight: 400; line-height: 1.15;
+}
+.ornament { margin: 13px 0 7px; color: #e6c2a4; }
+.invite {
+  max-width: 355px; margin: 0 auto 20px;
+  font-size: clamp(18px, 5vw, 22px); line-height: 1.35;
+}
+.date { font-size: 9px; line-height: 1.8; letter-spacing: .16em; }
+.outline {
+  display: inline-block; margin-top: 17px;
+  padding: 12px 21px; border: 1px solid #f8e8d0b0;
+  color: #fffaf3; font-size: 9px; letter-spacing: .2em;
+  text-decoration: none;
+}
+.bottom { width: 100%; margin-top: auto; padding-top: clamp(20px, 3vh, 36px); }
+.bottom-text {
+  margin: 0 0 13px;
+  color: #f1d9c5; font: 8px Arial, sans-serif;
+  letter-spacing: .19em;
+}
+.section-cue {
+  display: inline-flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 5px; padding: 7px 12px;
+  color: var(--terra); text-decoration: none;
+  font-size: 9px; letter-spacing: .2em;
+  transition: opacity .2s ease;
+}
+.section-cue:hover { opacity: .7; }
+.section-cue .arrow { font-size: 21px; line-height: .8; animation: cue-bob 1.8s infinite ease-in-out; }
+.section-cue.light { color: #f5e4d3; }
+@keyframes cue-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(4px); } }
+
+section:not(.hero) { text-align: center; padding: clamp(74px, 9vw, 112px) 24px; }
+.countdown { background: var(--paper); }
+section h2, footer h2 {
+  font-size: clamp(34px, 9vw, 48px);
+  line-height: 1.05; font-weight: 400; margin: 0 0 30px;
+}
+.timer {
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px; width: 100%; max-width: 440px; margin: 34px auto 19px;
+}
+.cell { padding: 18px 2px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.cell strong { display: block; font-size: clamp(25px, 7vw, 38px); font-weight: 500; color: var(--terra); }
+.cell span { display: block; margin-top: 5px; font: 8px Arial, sans-serif; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.note { font-size: 16px; color: var(--muted); }
+.countdown .section-cue { margin-top: 23px; }
+.details { background: #efe3d7; }
+.card { max-width: 500px; margin: auto; padding: 38px 20px; border: 1px solid #d0b5a1; background: #f8f0e7; }
+.flower { color: var(--terra); font-size: 26px; }
+.label { margin: 14px 0; color: var(--terra); font: 10px Arial, sans-serif; letter-spacing: .22em; }
+.card h3 { margin: 0; font-size: 35px; font-weight: 400; }
+.rule { width: 50px; height: 1px; background: var(--terra); margin: 22px auto; }
+.event-date { font-size: 21px; margin: 0 0 5px; }
+.time { color: var(--muted); font-size: 18px; margin: 0 0 25px; }
+.venue { font-size: 25px; margin: 0 0 7px; }
+.address { font-size: 17px; line-height: 1.5; color: var(--muted); }
+.actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: 27px; }
+.action-link {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 12px 14px; border: 1px solid var(--terra); min-width: 160px;
+  background: transparent; color: var(--terra);
+  text-decoration: none; font-size: 10px; letter-spacing: .12em;
+}
+.action-link:hover { background: #f4e7da; }
+.details > .section-cue { margin-top: 28px; }
+footer { padding: 78px 24px 64px; text-align: center; background: var(--cream); }
+footer h2 { max-width: 370px; margin: 0 auto 20px; }
+footer .names { font-family: "Great Vibes", cursive; color: var(--terra); font-size: 38px; margin: 10px 0; }
+.footer-date { font: 10px Arial, sans-serif; letter-spacing: .22em; color: var(--muted); }
+footer .section-cue { margin-top: 18px; }
+.share-button {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 205px; min-height: 44px;
+  margin-top: 30px; padding: 12px 22px;
+  border: 1px solid var(--terra);
+  color: var(--terra); background: transparent;
+  font: 10px Arial, Helvetica, sans-serif;
+  letter-spacing: .18em;
+  transition: color .2s ease, background .2s ease;
+}
+.share-button:hover { color: var(--paper); background: var(--terra); }
+.share-feedback {
+  margin: 9px auto 0;
+  min-height: 16px;
+  color: var(--muted);
+  font: 12px Arial, Helvetica, sans-serif;
+}
+.share-feedback a { color: var(--terra); }
+.progress { position: fixed; right: 0; top: 0; z-index: 7; width: 3px; height: 0; background: var(--terra); pointer-events: none; }
+.music {
+  position: fixed; z-index: 8; top: max(14px, env(safe-area-inset-top)); right: max(14px, env(safe-area-inset-right));
+  display: none; place-items: center;
+  width: 40px; height: 40px; padding: 0;
+  border: 1px solid #fff9; border-radius: 50%;
+  color: #fff; background: #392b24ab;
+  font-size: 19px; backdrop-filter: blur(8px);
+}
+@media (max-height: 760px) and (min-width: 481px) {
+  .hero { padding-top: 16px; padding-bottom: 15px; }
+  .top { gap: 6px; }
+  .monogram { width: 51px; height: 51px; font-size: 17px; }
+  .monogram i { font-size: 14px; }
+  .hero-illustration { width: 112px; margin: 9px auto 10px; }
+  .hero h1 { font-size: 72px; }
+  .eyebrow { margin-bottom: 10px; }
+  .ornament { margin: 7px 0 3px; }
+  .invite { font-size: 19px; margin-bottom: 12px; }
+  .outline { padding: 10px 18px; margin-top: 10px; }
+  .bottom { padding-top: 12px; }
+  .bottom-text { margin-bottom: 5px; }
+}
+@media (max-width: 480px) {
+  .hero { padding: 19px 22px max(22px, env(safe-area-inset-bottom)); }
+  .hero-frame { inset: 11px; }
+  .top { gap: 9px; }
+  .monogram { width: 55px; height: 55px; font-size: 17px; }
+  .monogram i { font-size: 14px; }
+  .caps { font-size: 9px; letter-spacing: .16em; }
+  .hero-illustration { width: clamp(90px, 17.5vh, 137px); margin: 14px auto 14px; }
+  .eyebrow { margin-bottom: 10px; font-size: 9px; }
+  .hero h1 { font-size: clamp(52px, 13vw, 67px); }
+  .ornament { margin: 9px 0 5px; }
+  .invite { font-size: 18px; margin-bottom: 15px; }
+  .date { font-size: 8px; letter-spacing: .12em; }
+  .outline { padding: 10px 17px; margin-top: 11px; }
+  .bottom { padding-top: 18px; }
+  .bottom-text { margin-bottom: 6px; }
+  section:not(.hero) { padding: 72px 22px; }
+  .action-link { width: 100%; max-width: 300px; }
+  .music { width: 38px; height: 38px; font-size: 18px; }
+}
+@media (max-height: 650px) and (max-width: 480px) {
+  .hero { padding-top: 13px; }
+  .monogram { width: 48px; height: 48px; }
+  .hero-illustration { width: 95px; margin: 8px auto 9px; }
+  .hero h1 { font-size: 52px; }
+  .copy { padding: 0 5px; }
+  .invite { font-size: 17px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+</style>
+</head>
+<body>
+<div class="screen" id="intro">
+  <div class="kicker">A SPECIAL INVITATION</div>
+  <button class="envelope-btn" id="open" aria-label="Open wedding invitation">
+    <div class="envelope">
+      <div class="invite-peek" aria-hidden="true">
+        <div class="invite-peek-title">Meeran <em>&amp;</em> Amra</div>
+        <div class="invite-peek-date">10 JANUARY 2027</div>
+      </div>
+      <div class="flap"></div>
+      <div class="seal">M <span>&amp;</span> A</div>
+      <div class="caption">With love, Meeran &amp; Amra</div>
+    </div>
+  </button>
+  <div class="hint">Tap the envelope to open</div>
+</div>
+
+<div class="progress" id="progress" aria-hidden="true"></div>
+<button class="music" id="music" aria-label="Play background music" aria-pressed="false" title="Play background music">♫</button>
+<audio id="audio" loop preload="none" src="music.mpeg"></audio>
+<p id="countdownLive" class="sr-only" aria-live="polite"></p>
+
+<main id="invitation" hidden>
+  <section class="hero photo-missing" id="home">
+    <img class="hero-photo" id="heroPhoto" src="couple.jpg" alt="" decoding="async">
+    <div class="overlay"></div>
+    <div class="hero-frame" aria-hidden="true"></div>
+    <div class="botanical left" aria-hidden="true">❧</div>
+    <div class="botanical right" aria-hidden="true">❧</div>
+    <div class="top">
+      <div class="monogram">M <i>&amp;</i> A</div>
+      <div class="caps">TOGETHER WITH OUR FAMILIES</div>
+    </div>
+    <div class="hero-illustration" aria-hidden="true">
+      <img src="data:image/png;base64,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" alt="">
+    </div>
+    <div class="copy">
+      <p class="eyebrow light">OUR FOREVER BEGINS HERE</p>
+      <h1 id="coupleNames" tabindex="-1"><span>Meeran</span><em>&amp;</em><span>Amra</span></h1>
+      <div class="ornament">✦</div>
+      <p class="invite">With the blessings of our families, we invite you to celebrate our wedding.</p>
+      <p class="date">SUNDAY · 10 JANUARY 2027 · 11:00 AM</p>
+      <a class="outline" href="#details">THE CELEBRATION</a>
+    </div>
+    <div class="bottom">
+      <p class="bottom-text">A NEW CHAPTER · A LIFETIME OF LOVE</p>
+      <a class="section-cue light" href="#countdown" aria-label="Scroll down to countdown">SCROLL DOWN <span class="arrow" aria-hidden="true">⌄</span></a>
+    </div>
+  </section>
+
+  <section class="countdown" id="countdown">
+    <p class="eyebrow">UNTIL WE SAY “I DO”</p>
+    <h2>Counting down to forever</h2>
+    <div class="timer" aria-hidden="true">
+      <div class="cell"><strong id="days">00</strong><span>Days</span></div>
+      <div class="cell"><strong id="hours">00</strong><span>Hours</span></div>
+      <div class="cell"><strong id="minutes">00</strong><span>Minutes</span></div>
+      <div class="cell"><strong id="seconds">00</strong><span>Seconds</span></div>
+    </div>
+    <p class="note" id="countNote">10 January 2027 · 11:00 AM IST</p>
+    <a class="section-cue" href="#details">SCROLL FOR DETAILS <span class="arrow" aria-hidden="true">⌄</span></a>
+  </section>
+
+  <section class="details" id="details">
+    <p class="eyebrow">THE WEDDING CELEBRATION</p>
+    <h2>A day to remember</h2>
+    <div class="card">
+      <div class="flower">✧</div>
+      <p class="label">THE WEDDING</p>
+      <h3>Meeran &amp; Amra</h3>
+      <div class="rule"></div>
+      <p class="event-date">Sunday, 10 January 2027</p>
+      <p class="time">11:00 AM IST</p>
+      <p class="venue">Drizzle Elite Mahal</p>
+      <p class="address">Courtallam, Tamil Nadu 627805</p>
+      <div class="actions">
+        <a class="action-link" href="https://www.google.com/maps/search/?api=1&amp;query=Drizzle+Elite+Mahal+Courtallam+Tamil+Nadu" target="_blank" rel="noopener noreferrer">VIEW LOCATION</a>
+        <a class="action-link" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Meeran%20%26%20Amra%20Wedding&amp;dates=20270110T053000Z%2F20270110T073000Z&amp;details=With%20the%20blessings%20of%20our%20families%2C%20we%20invite%20you%20to%20celebrate%20our%20wedding.&amp;location=Drizzle%20Elite%20Mahal%2C%20Courtallam%2C%20Tamil%20Nadu%20627805" target="_blank" rel="noopener noreferrer">ADD TO CALENDAR</a>
+      </div>
+    </div>
+    <a class="section-cue" href="#closing">SCROLL TO CONTINUE <span class="arrow" aria-hidden="true">⌄</span></a>
+  </section>
+
+  <footer id="closing">
+    <div class="flower">✦</div>
+    <p class="eyebrow">WITH LOVE AND GRATITUDE</p>
+    <h2>We can't wait to celebrate with you.</h2>
+    <p class="names">Meeran &amp; Amra</p>
+    <span class="footer-date">10 · 01 · 2027</span>
+    <div><button class="share-button" id="shareInvite" type="button">SHARE INVITATION</button></div>
+    <p class="share-feedback" id="shareFeedback" role="status" aria-live="polite"></p>
+    <div><a class="section-cue" href="#home">BACK TO TOP <span class="arrow" aria-hidden="true">⌃</span></a></div>
+  </footer>
+</main>
+<script>
+const intro = document.getElementById('intro');
+const invitation = document.getElementById('invitation');
+const audio = document.getElementById('audio');
+const music = document.getElementById('music');
+const openButton = document.getElementById('open');
+const heroPhoto = document.getElementById('heroPhoto');
+const hero = document.getElementById('home');
+const countdownLive = document.getElementById('countdownLive');
+const progress = document.getElementById('progress');
+const shareButton = document.getElementById('shareInvite');
+const shareFeedback = document.getElementById('shareFeedback');
+const shareUrl = 'https://meeran-amra.github.io/';
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+let opened = false;
+
+// Play a softer soundtrack, including on devices that ignore <audio>.volume.
+let audioContext = null;
+function prepareAudio() {
+  if (!audioContext) {
+    const AudioContextConstructor = window.AudioContext || window.webkitAudioContext;
+    if (AudioContextConstructor) {
+      try {
+        audioContext = new AudioContextConstructor();
+        const source = audioContext.createMediaElementSource(audio);
+        const gain = audioContext.createGain();
+        gain.gain.value = 0.28;
+        source.connect(gain).connect(audioContext.destination);
+        audio.volume = 1;
+      } catch (error) {
+        audioContext = null;
+        audio.volume = 0.28;
+      }
+    } else {
+      audio.volume = 0.28;
+    }
+  }
+  if (audioContext && audioContext.state === 'suspended') {
+    audioContext.resume().catch(() => {});
+  }
+}
+async function playAudio() {
+  prepareAudio();
+  try { await audio.play(); } catch (error) { /* Playback may be blocked. */ }
+  syncMusicButton();
+}
+function syncMusicButton() {
+  const playing = !audio.paused;
+  music.textContent = playing ? '♪' : '♫';
+  music.setAttribute('aria-pressed', String(playing));
+  music.setAttribute('aria-label', playing ? 'Pause background music' : 'Play background music');
+  music.title = playing ? 'Pause background music' : 'Play background music';
+}
+
+function showPhotoIfAvailable() {
+  if (heroPhoto.naturalWidth > 0) {
+    hero.classList.add('photo-ready');
+    hero.classList.remove('photo-missing');
+  } else {
+    hero.classList.add('photo-missing');
+    hero.classList.remove('photo-ready');
+  }
+}
+heroPhoto.addEventListener('load', showPhotoIfAvailable);
+heroPhoto.addEventListener('error', showPhotoIfAvailable);
+if (heroPhoto.complete) showPhotoIfAvailable();
+
+openButton.addEventListener('click', () => {
+  if (opened) return;
+  opened = true;
+  openButton.disabled = true;
+  intro.classList.add('opening');
+  invitation.hidden = false;
+  music.style.display = 'grid';
+  playAudio();
+  const delay = prefersReducedMotion ? 0 : 1100;
+  window.setTimeout(() => {
+    intro.classList.add('hide');
+    document.getElementById('coupleNames').focus({ preventScroll: true });
+  }, delay);
+  window.setTimeout(() => {
+    intro.style.display = 'none';
+  }, delay + (prefersReducedMotion ? 0 : 850));
+  updateProgress();
+});
+music.addEventListener('click', () => {
+  if (audio.paused) { playAudio(); }
+  else { audio.pause(); syncMusicButton(); }
+});
+audio.addEventListener('play', syncMusicButton);
+audio.addEventListener('pause', syncMusicButton);
+audio.addEventListener('error', () => { music.style.display = 'none'; });
+
+// 11:00 AM Indian Standard Time, 10 January 2027.
+const target = new Date('2027-01-10T11:00:00+05:30').getTime();
+const countdownElements = Object.fromEntries(
+  ['days', 'hours', 'minutes', 'seconds'].map(id => [id, document.getElementById(id)])
+);
+const countNote = document.getElementById('countNote');
+let lastAnnouncedHour = null;
+function tick() {
+  const remaining = Math.max(0, target - Date.now());
+  const days = Math.floor(remaining / 86400000);
+  const hours = Math.floor((remaining % 86400000) / 3600000);
+  const minutes = Math.floor((remaining % 3600000) / 60000);
+  const seconds = Math.floor((remaining % 60000) / 1000);
+  const values = { days, hours, minutes, seconds };
+  for (const [key, value] of Object.entries(values)) {
+    countdownElements[key].textContent = String(value).padStart(2, '0');
+  }
+  if (remaining === 0) {
+    countNote.textContent = 'Today begins a beautiful new chapter.';
+    if (lastAnnouncedHour !== -1) {
+      countdownLive.textContent = countNote.textContent;
+      lastAnnouncedHour = -1;
+    }
+  } else {
+    const totalHours = Math.floor(remaining / 3600000);
+    if (totalHours !== lastAnnouncedHour) {
+      lastAnnouncedHour = totalHours;
+      countdownLive.textContent = `${days} days, ${hours} hours and ${minutes} minutes until Meeran and Amra's wedding.`;
+    }
+  }
+}
+function updateProgress() {
+  const maximum = document.documentElement.scrollHeight - window.innerHeight;
+  progress.style.height = (maximum > 0 ? window.scrollY / maximum * 100 : 0) + 'vh';
+}
+tick();
+window.setInterval(tick, 1000);
+window.addEventListener('scroll', updateProgress, { passive: true });
+window.addEventListener('resize', updateProgress);
+updateProgress();
+syncMusicButton();
+
+// Use the device's native sharing sheet where available. Otherwise copy the clean URL.
+shareButton.addEventListener('click', async () => {
+  shareFeedback.textContent = '';
+  const data = {
+    title: 'Meeran & Amra — Wedding Invitation',
+    text: 'Join us on 10 January 2027 at 11:00 AM IST at Drizzle Elite Mahal, Courtallam.',
+    url: shareUrl
+  };
+
+  if (navigator.share) {
+    try {
+      await navigator.share(data);
+      return;
+    } catch (error) {
+      if (error.name === 'AbortError') return; // Guest closed the share sheet.
+    }
+  }
+
+  try {
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(shareUrl);
+    } else {
+      // Older browsers may lack the clipboard API.
+      const field = document.createElement('textarea');
+      field.value = shareUrl;
+      field.setAttribute('readonly', '');
+      field.style.position = 'fixed';
+      field.style.opacity = '0';
+      document.body.appendChild(field);
+      field.select();
+      const copied = document.execCommand('copy');
+      field.remove();
+      if (!copied) throw new Error('Copy unavailable');
+    }
+    shareFeedback.textContent = 'Invitation link copied';
+  } catch (error) {
+    const link = document.createElement('a');
+    link.href = shareUrl;
+    link.textContent = 'Open invitation link';
+    shareFeedback.textContent = 'Copy the invitation URL: ';
+    shareFeedback.appendChild(link);
+  }
+});
+</script>
+</body>
+</html>
